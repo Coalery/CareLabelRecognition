@@ -8,9 +8,11 @@
 
 현재 인식 가능한 기호는 아래와 같습니다.
 
-<img src="./image/icon1-1.png" width="128" height="128"/>
-<img src="./image/icon1-2.png" width="128" height="128"/>
-<img src="./image/icon2-1.png" width="128" height="128"/>
-<img src="./image/icon2-2.png" width="128" height="128"/>
-<img src="./image/icon3-1.png" width="128" height="128"/>
-<img src="./image/icon3-2.png" width="128" height="128"/>
+<p float="left">
+  <img src="./image/icon1-1.png" width="128" height="128"/>
+  <img src="./image/icon1-2.png" width="128" height="128"/>
+  <img src="./image/icon2-1.png" width="128" height="128"/>
+  <img src="./image/icon2-2.png" width="128" height="128"/>
+  <img src="./image/icon3-1.png" width="128" height="128"/>
+  <img src="./image/icon3-2.png" width="128" height="128"/>
+</p>
