@@ -2,7 +2,8 @@
     package="com.example.label_recognition_app">
    <application
         android:label="label_recognition_app"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -38,4 +39,11 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    <queries>
+      <!-- If your app opens https URLs -->
+      <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="https" />
+      </intent>
+    </queries>
 </manifest>
