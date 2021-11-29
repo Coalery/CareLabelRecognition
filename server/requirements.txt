@@ -1,0 +1,9 @@
+flask
+python-dotenv
+requests
+torch
+torchvision
+numpy
+pandas
+matplotlib
+opencv-python

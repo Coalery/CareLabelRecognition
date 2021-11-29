@@ -16,14 +16,18 @@ class MyApp extends StatelessWidget {
       ),
       home: SafeArea(
         child: Scaffold(
-          body: Center(
-            child: TextButton(
-              child: Text('지도'),
-              onPressed: () async {
-                await launch('https://m.map.naver.com/search2/search.naver?query=%EC%84%B8%ED%83%81%EC%86%8C&sm=hty&style=v5#/map/1');
-              },
-            ),
-          ),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              TextButton(
+                child: Text('지도'),
+                onPressed: () async {
+                  await launch('https://m.map.naver.com/search2/search.naver?query=%EC%84%B8%ED%83%81%EC%86%8C&sm=hty&style=v5#/map/1');
+                },
+              )
+            ],
+          )
         )
       ),
     );
