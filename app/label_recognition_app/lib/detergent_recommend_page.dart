@@ -1,0 +1,80 @@
+import 'package:flutter/material.dart';
+import 'package:label_recognition_app/menu_selector.dart';
+
+class DetergentRecommendPage extends StatefulWidget {
+  @override
+  _DetergentRecommendPageState createState() => _DetergentRecommendPageState();
+}
+
+class _DetergentRecommendPageState extends State<DetergentRecommendPage> {
+  List<MenuItem> items = [
+    MenuItem(
+      title: '세탁물을 선택하세요.',
+      items: ['옷', '수건', '인형', '이불', '이이이', '불불불'],
+      selectedIndex: -1
+    ),
+    MenuItem(
+      title: '세탁물의 재질을 선택하세요.',
+      items: ['면', '울', '레이온', '실크'],
+      selectedIndex: -1
+    ),
+    MenuItem(
+      title: '원하는 향기를 선택하세요.',
+      items: ['화이트머스크', '플로럴', '프루티', '시트론'],
+      selectedIndex: -1
+    )
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(vertical: 16.0),
+          child: Column(
+            children: [
+              Column(
+                children: List.generate(5, (idx) {
+                  if(idx % 2 == 0) {
+                    return MenuSelector(
+                      item: items[idx ~/ 2],
+                      onChange: (v) => setState(() => items[idx ~/ 2].selectedIndex = v),
+                    );
+                  } else {
+                    return SizedBox(height: 16);
+                  }
+                }),
+              ),
+              SizedBox(height: 32),
+              SizedBox(
+                width: 150,
+                height: 50,
+                child: TextButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Color(0xFF4285F4)),
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0))
+                    )
+                  ),
+                  child: Text(
+                    '선택 완료',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20
+                    ),
+                  ),
+                  onPressed: () {
+                    // TODO
+                    List<int> result = items.map((item) => item.selectedIndex).toList();
+                    print(result);
+                  },
+                ),
+              )
+            ],
+          ),
+        )
+      )
+    );
+  }
+}

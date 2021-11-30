@@ -89,7 +89,9 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
                   try {
                     XFile file = await controller.takePicture();
                     File captureFile = File(file.path);
-                    await resize(captureFile);
+
+                    File transformed = await transform(captureFile);
+                    bool result = await uploadImage(transformed.path);
                   } catch (e) {
                     print("$e");
                   }
@@ -147,9 +149,8 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
     );
   }
 
-  Future<void> resize(File file) async {
-    im.Image? image = im.decodeImage(file.readAsBytesSync());
-    if(image == null) return;
+  Future<File> transform(File file) async {
+    im.Image image = im.decodeImage(file.readAsBytesSync())!;
 
     im.Image resized = im.copyResize(image, width: 128);
     int y = resized.height ~/ 2 - 64;
@@ -159,10 +160,9 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
     
     Directory tempDir = await getTemporaryDirectory();
     File res = File('${tempDir.path}/temp.png')..writeAsBytesSync(im.encodePng(cropped));
-
     print('Result file created');
 
-    await uploadImage(res.path);
+    return res;
   }
 
   Future<bool> uploadImage(String filepath) async {
