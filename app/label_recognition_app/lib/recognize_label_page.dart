@@ -166,7 +166,7 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
   }
 
   Future<bool> uploadImage(String filepath) async {
-    var request = http.MultipartRequest('POST', Uri.parse('http://192.168.0.2:5000/'));
+    var request = http.MultipartRequest('POST', Uri.parse('http://192.168.0.2:8080/'));
     request.files.add(await http.MultipartFile.fromPath('image', filepath));
     print('Send Ready completed');
     var res = await request.send();
