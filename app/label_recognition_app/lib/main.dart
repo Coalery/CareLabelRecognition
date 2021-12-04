@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:label_recognition_app/main_page.dart';
+import 'package:label_recognition_app/pages/landing_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MainPage(),
+      home: LandingPage(),
     );
   }
 }

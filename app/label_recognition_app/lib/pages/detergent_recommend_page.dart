@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:label_recognition_app/menu_selector.dart';
+import 'package:label_recognition_app/widget/menu_selector.dart';
+
+import '../constant.dart';
 
 class DetergentRecommendPage extends StatefulWidget {
   @override
@@ -29,6 +31,20 @@ class _DetergentRecommendPageState extends State<DetergentRecommendPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+        title: Text(
+          Constant.name,
+          style: TextStyle(
+            color:Colors.white,
+            letterSpacing: 2.0,
+            fontSize: 25.0,
+            fontWeight: FontWeight.bold
+          ),
+        ),
+        centerTitle: true,
+        elevation: 0.0,
+        toolbarHeight: 70
+      ),
         body: Container(
           width: double.infinity,
           padding: EdgeInsets.symmetric(vertical: 16.0),

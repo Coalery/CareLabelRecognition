@@ -6,8 +6,10 @@ import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as im;
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:label_recognition_app/select_label_page.dart';
+import 'package:label_recognition_app/pages/select_label_page.dart';
 import 'package:path_provider/path_provider.dart';
+
+import '../constant.dart';
 
 class RecognizeLabelPage extends StatefulWidget {
   @override
@@ -46,6 +48,20 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+        title: Text(
+          Constant.name,
+          style: TextStyle(
+            color:Colors.white,
+            letterSpacing: 2.0,
+            fontSize: 25.0,
+            fontWeight: FontWeight.bold
+          ),
+        ),
+        centerTitle: true,
+        elevation: 0.0,
+        toolbarHeight: 70
+      ),
         body: Container(
           width: double.infinity,
           padding: EdgeInsets.symmetric(vertical: 16.0),
@@ -91,7 +107,7 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
                     File captureFile = File(file.path);
 
                     File transformed = await transform(captureFile);
-                    bool result = await uploadImage(transformed.path);
+                    await uploadImage(transformed.path);
                   } catch (e) {
                     print("$e");
                   }
