@@ -6,6 +6,7 @@ import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as im;
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:label_recognition_app/pages/recognize_result_page.dart';
 import 'package:label_recognition_app/pages/select_label_page.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -107,7 +108,15 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
                     File captureFile = File(file.path);
 
                     File transformed = await transform(captureFile);
-                    await uploadImage(transformed.path);
+                    String rawResult = await uploadImage(transformed.path);
+                    dynamic resultJson = jsonDecode(rawResult);
+
+                    print(resultJson['result']);
+                    print(Map<String, double>.from(resultJson['result'])..removeWhere((key, value) => value < 0.05));
+                    List<String> labels = (Map<String, double>.from(resultJson['result'])..removeWhere((key, value) => value < 0.05)).keys.toList();
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (_) => RecognizeResultPage(results: labels)
+                    ));
                   } catch (e) {
                     print("$e");
                   }
@@ -171,25 +180,22 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
     im.Image resized = im.copyResize(image, width: 128);
     int y = resized.height ~/ 2 - 64;
     im.Image cropped = im.copyCrop(resized, 0, y, 128, 128);
-
-    print('Resize, Crop completed');
     
     Directory tempDir = await getTemporaryDirectory();
     File res = File('${tempDir.path}/temp.png')..writeAsBytesSync(im.encodePng(cropped));
-    print('Result file created');
 
     return res;
   }
 
-  Future<bool> uploadImage(String filepath) async {
+  Future<String> uploadImage(String filepath) async {
     var request = http.MultipartRequest('POST', Uri.parse('http://192.168.0.2:8080/'));
     request.files.add(await http.MultipartFile.fromPath('image', filepath));
-    print('Send Ready completed');
     var res = await request.send();
-    print('Send!');
+
+    Completer<String> result = Completer();
     res.stream.transform(utf8.decoder).listen((value) {
-      print(value);
+      if(!result.isCompleted) result.complete(value);
     });
-    return res.statusCode == 200;
+    return await result.future;
   }
 }
