@@ -50,19 +50,19 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-        title: Text(
-          Constant.name,
-          style: TextStyle(
-            color:Colors.white,
-            letterSpacing: 2.0,
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold
+          title: Text(
+            Constant.name,
+            style: TextStyle(
+              color:Colors.white,
+              letterSpacing: 2.0,
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold
+            ),
           ),
+          centerTitle: true,
+          elevation: 0.0,
+          toolbarHeight: 70
         ),
-        centerTitle: true,
-        elevation: 0.0,
-        toolbarHeight: 70
-      ),
         body: Container(
           width: double.infinity,
           padding: EdgeInsets.symmetric(vertical: 16.0),

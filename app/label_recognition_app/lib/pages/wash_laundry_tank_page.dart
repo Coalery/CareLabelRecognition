@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:label_recognition_app/constant.dart';
+import 'package:label_recognition_app/widget/content_table.dart';
 
 class WashLaundryTankPage extends StatelessWidget {
   @override
@@ -34,7 +35,7 @@ class WashLaundryTankPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: 16.0),
-            _Content(
+            ContentTable(
               title: '| 통돌이 세탁기',
               items: [
                 "40도 이상 온수를 세탁조에 가득 채워줍니다.",
@@ -44,7 +45,7 @@ class WashLaundryTankPage extends StatelessWidget {
               ]
             ),
             SizedBox(height: 16.0),
-            _Content(
+            ContentTable(
               title: '| 드럼 세탁기',
               items: [
                 "세탁조에 분말 세제를 넣어줍니다.",
@@ -55,56 +56,6 @@ class WashLaundryTankPage extends StatelessWidget {
           ],
         )
       )
-    );
-  }
-}
-
-class _Content extends StatelessWidget {
-  final String title;
-  final List<String> items;
-  
-  _Content({
-    required this.title,
-    required this.items
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold
-          ),
-        ),
-        Table(
-          columnWidths: {
-            0: FlexColumnWidth(1),
-            1: FlexColumnWidth(9)
-          },
-          children: List.generate(items.length, (index) => TableRow(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top: 4.0),
-                child: Text(
-                  '${index + 1}.',
-                  style: TextStyle(fontSize: 16)
-                )
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 4.0),
-                child: Text(
-                  items[index],
-                  style: TextStyle(fontSize: 16)
-                )
-              )
-            ]
-          )),
-        )
-      ],
     );
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:label_recognition_app/data/detergent.dart';
+import 'package:label_recognition_app/pages/detergent_result_page.dart';
 import 'package:label_recognition_app/widget/menu_selector.dart';
 
 import '../constant.dart';
@@ -84,6 +86,9 @@ class _DetergentRecommendPageState extends State<DetergentRecommendPage> {
                     // TODO
                     List<int> result = items.map((item) => item.selectedIndex).toList();
                     print(result);
+                    Navigator.push(context, MaterialPageRoute(
+                      builder: (_) => DetergentResultPage(detergent: detergents['downy-premium']!)
+                    ));
                   },
                 ),
               )
