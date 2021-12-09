@@ -16,6 +16,7 @@ dependencies:
   http: ^0.13.3
   image: ^3.0.8
   path_provider: ^2.0.4
+  youtube_player_flutter: ^8.0.0
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
