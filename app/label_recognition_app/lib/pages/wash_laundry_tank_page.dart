@@ -69,6 +69,7 @@ class _WashLaundryTankPageState extends State<WashLaundryTankPage> {
                 "오염이 심하면 표준코스를 반복합니다."
               ]
             ),
+            SizedBox(height: 16.0),
             YoutubePlayer(
               controller: _controller,
               showVideoProgressIndicator: true,
