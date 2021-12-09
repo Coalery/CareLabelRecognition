@@ -25,6 +25,7 @@ class LandingPage extends StatelessWidget {
               width :240,
               child: Image.asset('assets/setakgi.png'),
             ),
+            SizedBox(height: 32.0),
             ElevatedButton(
               child: Text('세탁 시작하기!'),
               onPressed:() {
