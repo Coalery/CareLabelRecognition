@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:label_recognition_app/constant.dart';
+import 'package:label_recognition_app/widget/bottom_bar.dart';
 import 'package:label_recognition_app/widget/content_table.dart';
 
 class WashLaundryTankPage extends StatelessWidget {
@@ -8,19 +9,20 @@ class WashLaundryTankPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-        title: Text(
-          Constant.name,
-          style: TextStyle(
-            color:Colors.white,
-            letterSpacing: 2.0,
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold
+          title: Text(
+            Constant.name,
+            style: TextStyle(
+              color:Colors.white,
+              letterSpacing: 2.0,
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold
+            ),
           ),
+          centerTitle: true,
+          elevation: 0.0,
+          toolbarHeight: 70
         ),
-        centerTitle: true,
-        elevation: 0.0,
-        toolbarHeight: 70
-      ),
+        bottomNavigationBar: BottomBar(),
         body: ListView(
           padding: EdgeInsets.all(16.0),
           children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:label_recognition_app/constant.dart';
 import 'package:label_recognition_app/pages/home_page.dart';
 
 class LandingPage extends StatelessWidget {
@@ -11,24 +12,27 @@ class LandingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 10.0),
+            Text(
+              Constant.name,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+              ),
+            ),
+            SizedBox(height: 32.0),
             SizedBox(
-              height: 180,
-              width :180,
+              height: 240,
+              width :240,
               child: Image.asset('assets/setakgi.png'),
             ),
-            Column(
-              children: [
-                ElevatedButton(
-                  child: Text('세탁 시작하기!'),
-                  onPressed:() {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => HomePage())
-                    );
-                  }
-                )
-              ]
+            ElevatedButton(
+              child: Text('세탁 시작하기!'),
+              onPressed:() {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => HomePage())
+                );
+              }
             )
           ]
         )

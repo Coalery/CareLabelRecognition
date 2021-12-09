@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:label_recognition_app/constant.dart';
+import 'package:label_recognition_app/widget/bottom_bar.dart';
 
 class SelectLabelPage extends StatefulWidget {
   @override
@@ -12,6 +14,21 @@ class _SelectLabelPageState extends State<SelectLabelPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            Constant.name,
+            style: TextStyle(
+              color:Colors.white,
+              letterSpacing: 2.0,
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+          centerTitle: true,
+          elevation: 0.0,
+          toolbarHeight: 70
+        ),
+        bottomNavigationBar: BottomBar(),
         body: Container(
           padding: EdgeInsets.symmetric(vertical: 16.0),
           child: Column(

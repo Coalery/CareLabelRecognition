@@ -8,6 +8,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:label_recognition_app/pages/recognize_result_page.dart';
 import 'package:label_recognition_app/pages/select_label_page.dart';
+import 'package:label_recognition_app/widget/bottom_bar.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../constant.dart';
@@ -63,6 +64,7 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
           elevation: 0.0,
           toolbarHeight: 70
         ),
+        bottomNavigationBar: BottomBar(),
         body: Container(
           width: double.infinity,
           padding: EdgeInsets.symmetric(vertical: 16.0),
