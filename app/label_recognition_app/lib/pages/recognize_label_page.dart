@@ -102,7 +102,7 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 32),
+              SizedBox(height: 16.0),
               GestureDetector(
                 onTap: () async {
                   try {
@@ -140,7 +140,7 @@ class _RecognizeLabelPageState extends State<RecognizeLabelPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 16.0),
               Container(
                 width: double.infinity,
                 height: 50,
