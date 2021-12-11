@@ -3,6 +3,7 @@ import 'package:label_recognition_app/constant.dart';
 import 'package:label_recognition_app/pages/detergent_recommend_page.dart';
 import 'package:label_recognition_app/pages/recognize_label_page.dart';
 import 'package:label_recognition_app/pages/wash_laundry_tank_page.dart';
+import 'package:label_recognition_app/widget/bottom_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
@@ -23,7 +24,6 @@ class HomePage extends StatelessWidget {
         elevation: 0.0,
         toolbarHeight: 70
       ),
-    
       drawer: Drawer(
         child: ListView(
           children: [
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.grey[850],
               ),
               title: Text('옷감별 세탁방법'),
-              onTap: (){
+              onTap: () {
                 print('menu1 is clicked');
               },
             ),
@@ -140,33 +140,7 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
-          bottomNavigationBar: BottomNavigationBar(
-            currentIndex: 1,
-            items: [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.map),
-                label: 'Map'
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: 'Home'
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.camera),
-                label: 'Camera'
-              )
-            ],
-            onTap: (idx) async {
-              if(idx == 0) {
-                await launch('https://m.map.naver.com/search2/search.naver?query=%EC%84%B8%ED%83%81%EC%86%8C&sm=hty&style=v5#/map/1');
-              } else if(idx == 2) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => RecognizeLabelPage())
-                );
-              }
-            }
-          )
+          bottomNavigationBar: BottomBar(),
         )
       )
     );

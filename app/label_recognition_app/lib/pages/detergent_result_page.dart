@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:label_recognition_app/data/detergent.dart';
+import 'package:label_recognition_app/widget/bottom_bar.dart';
 import 'package:label_recognition_app/widget/content_table.dart';
 
 import '../constant.dart';
@@ -29,6 +30,7 @@ class DetergentResultPage extends StatelessWidget {
           elevation: 0.0,
           toolbarHeight: 70
         ),
+        bottomNavigationBar: BottomBar(),
         body: ListView(
           padding: EdgeInsets.all(16.0),
           children: [

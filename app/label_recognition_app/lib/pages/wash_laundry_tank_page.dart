@@ -1,26 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:label_recognition_app/constant.dart';
+import 'package:label_recognition_app/widget/bottom_bar.dart';
 import 'package:label_recognition_app/widget/content_table.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class WashLaundryTankPage extends StatelessWidget {
+class WashLaundryTankPage extends StatefulWidget {
+  @override
+  _WashLaundryTankPageState createState() => _WashLaundryTankPageState();
+}
+
+class _WashLaundryTankPageState extends State<WashLaundryTankPage> {
+  final YoutubePlayerController _controller = YoutubePlayerController(
+    initialVideoId: 'ArlpQleo968',
+    flags: YoutubePlayerFlags(
+      autoPlay: false,
+      mute: false
+    )
+  );
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-        title: Text(
-          Constant.name,
-          style: TextStyle(
-            color:Colors.white,
-            letterSpacing: 2.0,
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold
+          title: Text(
+            Constant.name,
+            style: TextStyle(
+              color:Colors.white,
+              letterSpacing: 2.0,
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold
+            ),
           ),
+          centerTitle: true,
+          elevation: 0.0,
+          toolbarHeight: 70
         ),
-        centerTitle: true,
-        elevation: 0.0,
-        toolbarHeight: 70
-      ),
+        bottomNavigationBar: BottomBar(),
         body: ListView(
           padding: EdgeInsets.all(16.0),
           children: [
@@ -52,6 +68,11 @@ class WashLaundryTankPage extends StatelessWidget {
                 "뚜껑을 닫고 표준 코스로 약 90분 돌려줍니다. 물의 온도가 높을수록 효과가 좋아집니다.",
                 "오염이 심하면 표준코스를 반복합니다."
               ]
+            ),
+            SizedBox(height: 16.0),
+            YoutubePlayer(
+              controller: _controller,
+              showVideoProgressIndicator: true,
             )
           ],
         )

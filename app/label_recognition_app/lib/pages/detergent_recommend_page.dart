@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:label_recognition_app/data/detergent.dart';
 import 'package:label_recognition_app/pages/detergent_result_page.dart';
+import 'package:label_recognition_app/widget/bottom_bar.dart';
 import 'package:label_recognition_app/widget/menu_selector.dart';
 
 import '../constant.dart';
@@ -34,19 +35,20 @@ class _DetergentRecommendPageState extends State<DetergentRecommendPage> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-        title: Text(
-          Constant.name,
-          style: TextStyle(
-            color:Colors.white,
-            letterSpacing: 2.0,
-            fontSize: 25.0,
-            fontWeight: FontWeight.bold
+          title: Text(
+            Constant.name,
+            style: TextStyle(
+              color:Colors.white,
+              letterSpacing: 2.0,
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold
+            ),
           ),
+          centerTitle: true,
+          elevation: 0.0,
+          toolbarHeight: 70
         ),
-        centerTitle: true,
-        elevation: 0.0,
-        toolbarHeight: 70
-      ),
+        bottomNavigationBar: BottomBar(),
         body: Container(
           width: double.infinity,
           padding: EdgeInsets.symmetric(vertical: 16.0),

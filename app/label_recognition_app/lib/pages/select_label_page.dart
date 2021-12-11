@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:label_recognition_app/constant.dart';
+import 'package:label_recognition_app/widget/bottom_bar.dart';
 
 class SelectLabelPage extends StatefulWidget {
   @override
@@ -12,6 +14,21 @@ class _SelectLabelPageState extends State<SelectLabelPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            Constant.name,
+            style: TextStyle(
+              color:Colors.white,
+              letterSpacing: 2.0,
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+          centerTitle: true,
+          elevation: 0.0,
+          toolbarHeight: 70
+        ),
+        bottomNavigationBar: BottomBar(),
         body: Container(
           padding: EdgeInsets.symmetric(vertical: 16.0),
           child: Column(
@@ -30,6 +47,12 @@ class _SelectLabelPageState extends State<SelectLabelPage> {
                   SizedBox(height: 16),
                   _Selector(
                     data: data,
+                    iconUrl: [
+                      'assets/icon1-1.png',
+                      'assets/icon1-2.png',
+                      'assets/icon2-1.png',
+                      'assets/icon3-1.png'
+                    ],
                     onChange: (idx, select) {
                       setState(() {
                         data[idx] = select;
@@ -96,10 +119,12 @@ class _SelectLabelPageState extends State<SelectLabelPage> {
 
 class _Selector extends StatelessWidget {
   final List<int> data;
+  final List<String> iconUrl;
   final void Function(int, int) onChange;
 
   _Selector({
     required this.data,
+    required this.iconUrl,
     required this.onChange
   });
 
@@ -115,7 +140,7 @@ class _Selector extends StatelessWidget {
                 width: 4
               ) : null
             ),
-            child: Image.asset('assets/icon1-1.png'),
+            child: Image.asset(iconUrl[i]),
           ),
           onTap: () => onChange(i, j),
         ))

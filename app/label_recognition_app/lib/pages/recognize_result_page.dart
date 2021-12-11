@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:label_recognition_app/constant.dart';
 import 'package:label_recognition_app/data/wash_symbol.dart';
+import 'package:label_recognition_app/widget/bottom_bar.dart';
 
 class RecognizeResultPage extends StatelessWidget {
   final List<String> results;
@@ -28,6 +29,7 @@ class RecognizeResultPage extends StatelessWidget {
           elevation: 0.0,
           toolbarHeight: 70
         ),
+        bottomNavigationBar: BottomBar(),
         body: ListView(
           padding: EdgeInsets.all(16.0),
           children: [
