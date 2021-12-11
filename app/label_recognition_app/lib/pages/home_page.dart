@@ -3,6 +3,7 @@ import 'package:label_recognition_app/constant.dart';
 import 'package:label_recognition_app/pages/detergent_recommend_page.dart';
 import 'package:label_recognition_app/pages/recognize_label_page.dart';
 import 'package:label_recognition_app/pages/wash_laundry_tank_page.dart';
+import 'package:label_recognition_app/pages/wash_method_per_cloth_page.dart';
 import 'package:label_recognition_app/widget/bottom_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -42,7 +43,9 @@ class HomePage extends StatelessWidget {
               ),
               title: Text('옷감별 세탁방법'),
               onTap: () {
-                print('menu1 is clicked');
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (_) => WashMethodPerClothPage()
+                ));
               },
             ),
             ListTile(
@@ -102,7 +105,11 @@ class HomePage extends StatelessWidget {
               _HomePageMenu(
                 color: Colors.blue[100]!,
                 text: '옷감별 세탁방법 알아보기',
-                onClick: () {},
+                onClick: () {
+                  Navigator.push(context, MaterialPageRoute(
+                    builder: (_) => WashMethodPerClothPage()
+                  ));
+                },
               ),
               _HomePageMenu(
                 color: Colors.blue[50]!,
